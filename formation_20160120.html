@@ -206,10 +206,11 @@ dim(Brauer2008_DataSet1)
               <p>fonction <i>separate</i> de tidyr :</p>
 			  <pre>
                 <code class="R" data-trim>
-library(dplyr)
-library(tidyr)
+library(dplyr) 
+library(tidyr) 
 cleaned_data <- Brauer2008_DataSet1 %>%
-    separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep = "\\|\\|")
+separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep =
+"\\|\\|") 
 View(cleaned_data)
 			    </code>
               </pre>
@@ -221,8 +222,8 @@ View(cleaned_data)
                 <code class="R" data-trim>
 library(dplyr)
 library(tidyr)
-cleaned_data <- separate(Brauer2008_DataSet1, NAME, c("name", "BP", "MF", "systematic_name", "number"), sep = "\\|\\|")
-			    </code>
+cleaned_data <- separate(Brauer2008_DataSet1, NAME, c("name", "BP", "MF",
+"systematic_name", "number"), sep = "\\|\\|") </code>
               </pre>
 		    </section>
 		  </section>
@@ -249,8 +250,8 @@ head(cleaned_data$BP)
 			  <pre>
                 <code class="R" data-trim>
 cleaned_data <- Brauer2008_DataSet1 %>%
-    separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep = "\\|\\|") %>%
-    mutate_each(funs(trimws), name:systematic_name)
+    separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep =
+"\\|\\|") %>% mutate_each(funs(trimws), name:systematic_name)
 			    </code>
               </pre>
               <pre>
@@ -267,8 +268,8 @@ cleaned_data <- Brauer2008_DataSet1 %>%
 			  <pre>
                 <code class="R" data-trim>
 cleaned_data <- Brauer2008_DataSet1 %>%
-    separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep = "\\|\\|") %>%
-    mutate_each(funs(trimws), name:systematic_name) %>%
+    separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep =
+"\\|\\|") %>% mutate_each(funs(trimws), name:systematic_name) %>%
     select(-number, -GID, -YORF, -GWEIGHT)
 			  </code>
             </pre>
@@ -296,8 +297,8 @@ $ G0.15           (dbl) -0.21, -0.40, -0.27, -0.24, 0.40, 0.23, -0.1...
 			  <pre>
                 <code class="R" data-trim>
 cleaned_data <- Brauer2008_DataSet1 %>%
-    separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep = "\\|\\|") %>%
-    mutate_each(funs(trimws), name:systematic_name) %>%
+    separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep =
+"\\|\\|") %>% mutate_each(funs(trimws), name:systematic_name) %>%
     select(-number, -GID, -YORF, -GWEIGHT) %>%
     gather(sample, expression, G0.05:U0.3)
 			    </code>
@@ -330,8 +331,8 @@ $ expression      (dbl) -0.24, 0.28, -0.02, -0.33, 0.05, -0.69, -0.5...
 			  <pre>
                 <code class="R" data-trim>
 cleaned_data <- Brauer2008_DataSet1 %>%
-    separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep = "\\|\\|") %>%
-    mutate_each(funs(trimws), name:systematic_name) %>%
+    separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep =
+"\\|\\|") %>% mutate_each(funs(trimws), name:systematic_name) %>%
     select(-number, -GID, -YORF, -GWEIGHT) %>%
     gather(sample, expression, G0.05:U0.3) %>%
     separate(sample, c("nutrient", "rate"), sep = 1, convert = TRUE)
@@ -495,8 +496,8 @@ library(ggplot2)
 Brauer2008_DataSet1 <- read.delim("/tmp/RtmpmIvzA5/data67167154fe1d")
 
 cleaned_data <- Brauer2008_DataSet1 %>%
-  separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep = "\\|\\|") %>%
-  mutate_each(funs(trimws), name:systematic_name) %>%
+  separate(NAME, c("name", "BP", "MF", "systematic_name", "number"), sep =
+"\\|\\|") %>% mutate_each(funs(trimws), name:systematic_name) %>%
   select(-number, -GID, -YORF, -GWEIGHT) %>%
   gather(sample, expression, G0.05:U0.3) %>%
   separate(sample, c("nutrient", "rate"), sep = 1, convert = TRUE)
@@ -523,7 +524,7 @@ cleaned_data %>%
             <p>par David Robinson</br><a href="http://varianceexplained.org/r/tidy-genomics-broom/">analyses supplémentaires sur le même jeu de données</a></p>
 		  </section>
 
-		  <!-- ggrepel -->
+		  <!-- ggrepel
 		  <section>
 			<h2>ggrepel</h2>
 			<br>
@@ -533,7 +534,10 @@ cleaned_data %>%
                    alt="Repel overlapping text labels away from each other"
                    >
             </a>
-		  </section>
+		-->  
+	    
+	    	</section>
+
 
 		  <!-- ggbio -->
 		  <section>
@@ -552,8 +556,8 @@ cleaned_data %>%
 			<h2>ggtree</h2>
 			<br>
             <a href="http://bioconductor.org/packages/release/bioc/html/ggtree.html">
-			  <img width="720"
-                   data-src="https://raw.githubusercontent.com/GuangchuangYu/ygc_name/master/Bioconductor/ggtree/2016-ggtree-phylip_files/figure-markdown_strict/unnamed-chunk-2-1.png"
+			  <img width="500"
+                   data-src="images/ggtree.png"
                    alt="ggtree example with alignment"
                    >
             </a>
@@ -577,7 +581,7 @@ cleaned_data %>%
 			<br>
             <a href="http://www.ggtern.com">
 			  <img
-                 width="600"
+                 width="550"
                  data-src="http://www.ggtern.com/wp-content/uploads/2014/06/limit_region_off.png"
                  alt="ggtern example"
                  >
@@ -590,7 +594,7 @@ cleaned_data %>%
 			<br>
             <a href="http://varianceexplained.org/files/bandwidth.html">
 			  <img
-                 width="600"
+                 width="500"
                  data-src="http://varianceexplained.org/images/density.gif"
                  alt="gganimate example"
                  >
@@ -1209,6 +1213,22 @@ layout(yaxis = list(title = "Pi_s", type = "log"))  </code></pre>
 					<iframe src = "interpop.html" width ="800" height= "500" frameborder = 0>
 					</iframe>
 				</section>
+
+				<section>
+				<h2>Figures "vraiment" interactive avec shiny + plotly + ggplot</h2>
+				Necessite un peu plus de travail mais...
+				</section>
+
+
+				<section>
+					<iframe src = "http://127.0.0.1:3088" width ="1000" height= "700" frameborder = 0>
+					</iframe>
+				</section>
+
+
+
+
+
 
 
 
